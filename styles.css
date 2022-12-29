@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #485b6c;
+}
+
+
+/* ---------- Pulsating circles */
+
+
+#animation_1 {
+  display: flex;
+  margin: 45px;
+}
+
+.pulse {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  animation: pulse_wave 2s infinite;
+}
+
+@keyframes pulse_wave {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.5;
+    transform: scale(1.4);
+  }
+
+}
+
+.pulse.white {
+  background-color: white;
+}
+
+.pulse.red {
+  background-color: rgb(201, 95, 95);
+}
+
+.pulse.orange {
+  background-color: orange;
+}
+
+.pulse.yellow {
+  background-color: rgb(212, 170, 31);
+}
+
+.pulse.blue {
+  background-color: rgb(53, 163, 190);
+}
+
+.pulse.green {
+  background-color: rgb(61, 177, 142);
+}
+
+.pulse.violet {
+  background-color: rgb(153, 79, 153);
+}
+
+.pulse.black {
+  background-color: black;
+}
+
+.pulse:before,
+.pulse:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: inherit;
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 1;
+}
+
+.pulse:before {
+  animation: pulse_wave 1s ease-in;
+}
+
+.pulse:after {
+  animation: pulse_wave 1s ease-in infinite;
+}
+
+/* ---------- Circle to Square morf */
+
+.circle_to_square {
+  margin: 45px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  animation: circle_to_square_anim 2s infinite;
+}
+
+@keyframes circle_to_square_anim {
+  0% {}
+
+  100% {
+    width: 100px;
+    height: 100px;
+    transform: rotate(360deg);
+    border-radius: 0;
+  }
+
+}
+
+/* ---------- PLANET */
+
+#planet_animation {
+  margin: 100px;
+  position: relative;
+}
+
+.earth {
+  z-index: 1;
+  width: 250px;
+}
+
+.comet {
+  position: absolute;
+  z-index: -1;
+  width: 80px;
+  height: 100px;
+  background-image: url("../img/asteroid.png");
+  top: 125px;
+  left: 125px;
+  animation: linear 5s orbita infinite;
+}
+
+
+@keyframes orbita {
+  0% {}
+
+  24% {
+    z-index: -2;
+  }
+
+  25% {
+    left: 200px;
+    top: 80px;
+    z-index: 2;
+  }
+
+  75% {
+    top: 200px;
+    left: 0;
+    z-index: 2;
+  }
+
+  80% {
+    top: 160;
+    left: 100;
+    z-index: -2;
+  }
+
+  100% {}
+}
